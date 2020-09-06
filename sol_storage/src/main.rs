@@ -57,6 +57,7 @@ fn main() {
   let decoded = erasure::decode(recovered.to_vec(), present);
   println!("DATA   : {:?}", data);
   println!("ENCODED: {:?}", encoded);
+  println!("Rcovering using the subset {:?}", recovered);
   println!("DECODED: {:?}", decoded);
 
 }

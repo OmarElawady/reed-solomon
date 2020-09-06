@@ -43,15 +43,11 @@ pub fn decode(a: Vec<Vec<u8>>, present: Vec<bool>) -> Vec<Vec<u8>> {
   let m: u8 = present.len() as u8;
   let mat = transformation_matrix(m, n);
   let mut map: Vec<Vec<u8>> = Vec::<Vec<u8>>::new();
-  let used: Vec<Vec<u8>>;
   for i in 0..m as usize {
     if present[i] {
       map.push(mat[i].to_vec());
     }
   }
-  println!("{:?}", mat);
-  println!("{:?}", map);
   map = galois::invert_mat(map);
-  println!("{:?}", map);
   return galois::mul_mat(map, a.to_vec());
 }
